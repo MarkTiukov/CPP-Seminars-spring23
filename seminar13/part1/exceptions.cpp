@@ -18,7 +18,7 @@ void ThrowExceptionExample() {
 void LogicException() {
   // vector throws a length_error if resized above max_size
   std::vector<int> vector;
-  vector.resize(vector.max_size()e + 1);
+  vector.resize(vector.max_size() + 1);
 }
 
 int main() {
