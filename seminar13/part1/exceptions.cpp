@@ -34,7 +34,4 @@ int main() {
   } catch (const std::exception& ex) {
     std::cout << "non consequential" << std::endl;
   }
-
-  LogicException();
-
 }
