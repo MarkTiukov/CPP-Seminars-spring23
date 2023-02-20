@@ -47,3 +47,24 @@ int main() {
 
   std::cout << std::endl;*/
 }
+
+/// *Exception safety*
+///
+/// 1. No Throw Guarantee:
+/// Operations are guaranteed to succeed
+/// and satisfy all requirements even in exceptional situations.
+/// If an exception occurs, it will be handled internally and
+/// not observed by clients.
+///
+/// 2. Strong exception safety:
+/// Operations can fail, but
+/// failed operations are guaranteed to have no side effects,
+/// leaving the original values intact
+///
+/// 3. Basic exception safety:
+/// Partial execution of failed operations can result
+/// in side effects, but all invariants are preserved.
+/// Any stored data will contain valid values which may differ
+/// from the original values. Resource leaks (including memory leaks)
+/// are commonly ruled out by an invariant stating that all resources
+/// are accounted for and managed.
