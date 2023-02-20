@@ -17,5 +17,11 @@ class MyVector {
 int main() {
   MyVector integers;
   for (auto i : integers)
-    std::cout << i << std::endl;
+    std::cout << i << " ";
+  std::cout << std::endl;
+
+  std::fill(integers.begin(), integers.end(), 3);
+  for (auto i : integers)
+    std::cout << i << " ";
+  std::cout << std::endl;
 }
