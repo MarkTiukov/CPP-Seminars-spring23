@@ -2,6 +2,8 @@
 #include <vector>
 #include <iostream>
 
+/// https://en.cppreference.com/w/cpp/container/stack
+
 template<typename T>
 class StackContainer {
  public:
@@ -36,7 +38,11 @@ int main() {
 
   // create stack:
   // std::stack<T, Container=std::deque<T>>
-  std::stack<int, StackContainer<int>> stack;
+
+  std::stack<int> stack;
+//  std::stack<int, std::vector<int>> stack;
+
+//  std::stack<int, StackContainer<int>> stack;
 
   stack.push(21);
   stack.push(22);
