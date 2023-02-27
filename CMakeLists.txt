@@ -8,3 +8,6 @@ add_subdirectory(seminar13)
 
 # seminar 14
 add_subdirectory(seminar14)
+
+# seminar 15
+add_subdirectory(seminar15)
