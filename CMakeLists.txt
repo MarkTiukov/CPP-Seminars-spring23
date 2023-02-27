@@ -5,3 +5,6 @@ set(CMAKE_CXX_STANDARD 23)
 
 # seminar 13
 add_subdirectory(seminar13)
+
+# seminar 14
+add_subdirectory(seminar14)
