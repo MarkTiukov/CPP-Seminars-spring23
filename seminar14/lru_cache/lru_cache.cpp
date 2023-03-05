@@ -29,12 +29,11 @@ class LRUCache {
     }
     use_timeline_.push_front({key, value});
     cache_[key] = use_timeline_.begin();
+
   }
 
  private:
   const size_t capacity_;
-
   std::list<std::pair<int, int>> use_timeline_;
   std::unordered_map<int, std::list<std::pair<int, int>>::iterator> cache_;
-
 };
