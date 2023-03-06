@@ -1,10 +1,11 @@
 #include <iostream>
+#include <vector>
 
 template <typename T>
 struct SimpleAllocator {
 
   T* allocate(size_t n) {
-    return std::reinterpret_pointer_cast<T*>(new char[n * sizeof(T)]);
+    return reinterpret_cast<T*>(new char[n * sizeof(T)]);
   }
 
   void deallocate(T* ptr, size_t) {
@@ -16,8 +17,11 @@ struct SimpleAllocator {
     new(ptr) T(args...);
   }
 
-  void destroy(T* ptr) {
-    ptr->~Т();
+  void destroy(T* ptr) noexcept {
+    ptr->~T();
   }
 
 };
+
+int main() {
+}
