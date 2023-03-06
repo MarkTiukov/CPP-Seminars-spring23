@@ -12,7 +12,7 @@ void simpleMalloc() {
 
 void usableMalloc() {
   const size_t SIZE = 3;
-  auto arr = (int*) std::malloc(SIZE * sizeof(int));
+  auto arr = (int *)std::malloc(SIZE * sizeof(int));
   arr[0] = 0;
   arr[1] = 1;
   arr[2] = 2;
@@ -25,7 +25,7 @@ void usableMalloc() {
 
 void correctMalloc() {
   const size_t SIZE = 3;
-  int* arr = (int*) std::malloc(SIZE * sizeof(int));
+  int *arr = (int *)std::malloc(SIZE * sizeof(int));
   arr[0] = 0;
   arr[1] = 1;
   arr[2] = 2;
@@ -49,8 +49,5 @@ void correctMalloc() {
 }
 
 int main() {
-//  correctMalloc();
-
-
-
+  correctMalloc();
 }
