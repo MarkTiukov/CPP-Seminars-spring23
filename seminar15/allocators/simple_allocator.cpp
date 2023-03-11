@@ -4,6 +4,8 @@
 template <typename T>
 struct SimpleAllocator {
 
+  using value_type = T;
+
   T* allocate(size_t n) {
     return reinterpret_cast<T*>(new char[n * sizeof(T)]);
   }
@@ -24,4 +26,5 @@ struct SimpleAllocator {
 };
 
 int main() {
+  std::vector<int, SimpleAllocator<int>> vec;
 }
