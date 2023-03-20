@@ -38,7 +38,26 @@ class Vector {
  private:
 
   void reserve(size_t new_capacity) {
-    // 1:12:54
+    if (new_capacity <= capacity_)
+      return;
+    T* new_data = AllocatorTraits::allocate(allocator_, new_capacity);
+    for (size_t i = 0; i < size_; ++i) {
+      try {
+        AllocatorTraits::construct(allocator_, new_data + i, std::move(data_[i]));
+      } catch (...) {
+        for (size_t j = 0; j < i; ++j) {
+          AllocatorTraits::destroy(allocator_, new_data + i);
+        }
+        AllocatorTraits::deallocate(allocator_, new_data, new_capacity);
+        throw;
+      }
+    }
+    for (size_t i = 0; i < size_; ++i) {
+      AllocatorTraits::destroy(allocator_, data_ + i);
+    }
+    AllocatorTraits::deallocate(allocator_, data_, capacity_);
+    capacity_ = new_capacity;
+    data_ = new_data;
   }
 
  private:
