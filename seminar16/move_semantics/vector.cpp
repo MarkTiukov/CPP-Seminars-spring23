@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 template <typename T, typename Allocator=std::allocator<T>>
 class Vector {
@@ -16,6 +17,14 @@ class Vector {
     ++size_;
   }
 
+  void push_back(T&& value) {
+    if (size_ >= capacity_) {
+      reserve(capacity_ * 2);
+    }
+    AllocatorTraits::construct(allocator_, data_ + size_, std::move(value));
+    ++size_;
+  }
+
   template <typename... Args>
   void emplace_back(const Args& ... args) {
     if (size_ >= capacity_) {
@@ -25,7 +34,6 @@ class Vector {
     ++size_;
   }
 
-  // Solution for perfect forward problem
   /*template <typename... Args>
   void emplace_back(Args&& ... args) { // T&& --> WTF??
     if (size_ >= capacity_) {
@@ -71,5 +79,10 @@ class Vector {
 };
 
 int main() {
-  Vector<int>().emplace_back(5);
+//  Vector<int>().push_back(5);
+  std::vector<std::vector<int>> vec;
+  std::vector<int> v{1, 2, 3, 4, 5, 6};
+  vec.push_back(std::vector<int>{1, 2, 3});
+  vec.push_back(std::move(v));
+
 }
