@@ -29,7 +29,7 @@ struct Point {
   int x, y;
 };
 
-void simple_struct() {
+void simpleStruct() {
   Point p(1, 2);
   auto [x, y] = p;
   std::cout << x << " " << y << std::endl;
@@ -49,7 +49,7 @@ struct Person {
   std::string name;
 };
 
-void custom_struct() {
+void customStruct() {
   Person p(15, "John");
 //  auto [x, y] = p;
 }
@@ -77,5 +77,5 @@ void refStruct() {
 }
 
 int main() {
-  refStruct();
+
 }

@@ -5,7 +5,7 @@ struct Point {
   double x, y;
 };
 
-void simple_tuple() {
+void simpleTuple() {
   Point p{0.0, 0.0};
   int num = 100;
   std::string s = "Hello World!";
@@ -29,7 +29,7 @@ class X {
   std::tuple<Ts const& ...> values_;
 };
 
-void break_make_tuple() {
+void breakMakeTuple() {
   int i = 42;
   auto s = std::string("universe");
 
@@ -39,7 +39,7 @@ void break_make_tuple() {
   std::cout << "s = " << std::get<1>(x.values_) << std::endl;
 }
 
-void tuple_with_references() {
+void tupleWithReferences() {
   Point p{0.0, 0.0};
   int num = 100;
   std::string s = "Hello World!";
@@ -57,7 +57,7 @@ std::string universe() {
   return "universe";
 }
 
-void create_with_rvalues() {
+void createWithRvalues() {
   int i = 42;
 
   auto myTuple = std::forward_as_tuple(i, universe());
@@ -65,6 +65,10 @@ void create_with_rvalues() {
   static_assert(std::is_same_v<decltype(myTuple), std::tuple<int&, std::string&&>>);
 }
 
+void tupleSize() {
+  std::tuple t{1, 2, 3};
+  std::cout << "size of t: " << std::tuple_size<decltype(t)>::value << std::endl;
+}
+
 int main() {
-  simple_tuple();
 }
