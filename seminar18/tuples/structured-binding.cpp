@@ -43,7 +43,6 @@ void simpleStruct() {
 struct Person {
   Person() = default;
   Person(int age, const std::string& name) : age(age), name(name) {}
-  Person(const std::string& name, int age) : age(age), name(name) {}
 
   int age;
   std::string name;
@@ -51,7 +50,7 @@ struct Person {
 
 void customStruct() {
   Person p(15, "John");
-//  auto [x, y] = p;
+  auto [x, y] = p;
 }
 
 struct Circle {
@@ -70,10 +69,10 @@ void refStruct() {
   --c.x;
   std::cout << circle.rad << " " << circle.center.x << std::endl;
 
-//  auto& [radius, center] = circle;
-//  ++radius;
-//  ++center.x;
-//  std::cout << circle.rad << " " << circle.center.x << std::endl;
+  auto& [radius, center] = circle;
+  ++radius;
+  ++center.x;
+  std::cout << circle.rad << " " << circle.center.x << std::endl;
 }
 
 int main() {

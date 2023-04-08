@@ -16,8 +16,8 @@ void simpleTuple() {
   std::cout << std::get<2>(obj).x << " " << std::get<2>(obj).y << " ";
   std::cout << std::endl;
 
-  /*std::get<0>(obj) = 5;
-  std::cout << std::get<0>(obj) << std::endl;*/
+  std::get<0>(obj) = 5;
+  std::cout << std::get<0>(obj) << std::endl;
 
 }
 
@@ -66,9 +66,10 @@ void createWithRvalues() {
 }
 
 void tupleSize() {
-  std::tuple t{1, 2, 3};
+  std::tuple t{1, 'a', 3};
   std::cout << "size of t: " << std::tuple_size<decltype(t)>::value << std::endl;
 }
 
 int main() {
+
 }
