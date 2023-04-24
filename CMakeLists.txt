@@ -20,3 +20,6 @@ add_subdirectory(seminar17)
 
 # seminar 18
 add_subdirectory(seminar18)
+
+# seminar 20
+add_subdirectory(seminar20)
