@@ -52,15 +52,50 @@ void captureData() {
   int a = 5;
   auto lambda = [a]() {
     std::cout << a << std::endl;
+    int x = 5;
+    x++;
+    // a++;   /// CE
   };
+  lambda();
 
-  auto mutable_lambda = [a]() mutable {
-    ++a;
-    std::cout << a << std::endl;
+  auto mutable_lambda = [b = a]() mutable {
+    ++b;
+    std::cout << b << std::endl;
   };
+  mutable_lambda();
 
 }
 
+void referenceCapture() {
+  int a = 5;
+
+  auto f = [&a] {
+    ++a;
+  };
+  f();
+
+  auto ff = [&a = std::as_const(a)]() mutable {
+    std::cout << a << std::endl;
+  };
+  ff();
+
+}
+
+struct ThisCapture {
+  int x = 1;
+
+  void thisCapture() {
+    int y = 10;
+    auto f = [this] mutable{
+      ++x;
+      std::cout << x << std::endl;
+//      std::cout << y << std::endl;
+    };
+    f();
+    std::cout << x << std::endl;
+  }
+};
+
 int main() {
-  motivationExample();
+  ThisCapture().thisCapture();
 }
