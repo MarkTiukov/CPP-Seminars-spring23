@@ -1,1 +1,2 @@
 add_subdirectory(functions)
+add_subdirectory(type_erasure)
